@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Champions Mastery</title>
+
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+
+        <link rel="stylesheet" href="../game-analysis/static/css/syle.css">
+
+    </head>
+
+<body style = "background-color: #0a0a0a">
+    <div class="container-fluid">
+        <div class="wrapper">   
+            <div class="text-center text-white">
+                <h1 class="display-3" style="font-family: fantasy; color: #602c85"><b>League of Legends <br> Champions Mastery<br> </h1>
+                <p style = "color: #602c85; font-size: 1.5rem">Use the dynamic table below to explore your Champion</p>
+                <img src="https://raw.githubusercontent.com/frlinh/game-analysis/main/static/images/Emblem_Diamond.png" style="width:300px;height:400px"></a>    
+            </div>
+        </div>   
+    </div>
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">    
+                <div class="col-md-4">
+                    <h3 style="font-family: Arial; color: #f9f6fc"><small>Who will you choose?</small></h3>
+                    <div class="container-fluid">
+                        <button type="button" class="btn btn-lg btn-dark" onclick="location.href='http://ddragon.leagueoflegends.com/cdn/12.15.1/data/en_US/champion.json';">Go to Tableau</button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <p style="font-family: Arial; color: #f9f6fc">
+                        LoL is one of the most popular multi-player games but is still widely notorious for not being noob-friendly, in part due to its many game mechanics and its ever-expanding roster of 161 playable Champions.
+                        The purpose of this project is to create an easy-to-read and informative dashboard that allows a player to select any champion and see advanced stats for that champion, including learning curve and predicted mastery time.
+                        The player using this dashboard will be able to use this information to see customized predictions based on their selections, allowing them to make detailed decisions about which champions to play next. It can additionally be used as an entry funnel for new or curious players who would like to know which champions would be the most accessible to try first without having to understand a lot of granular details about the game.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <form class="bg-light">
+                    <ul class="list-group bg-dark" >
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="date">Champion Name:</label>
+                            <input type="optgroup" placeholder="Zyra" id="name" />
+                        </li> 
+
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="city">Champion Key:</label>
+                            <input type="text" placeholder="143" id="key" />
+                        </li> 
+
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="country">Tags:</label>
+                            <input type="optgroup" placeholder="['Mage', 'Support']" id="tags" />
+                        </li>  
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="country">Partype:</label>
+                            <input type="optgroup" placeholder="Mana" id="partype" />
+                        </li>                 
+                    </ul>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form class="bg-light">
+                    <ul class="list-group bg-dark" >
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="date">hp:</label>
+                            <input type="optgroup" placeholder="574" id="hp" />
+                        </li>
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="city">movespeed:</label>
+                            <input type="text" placeholder="340" id="movespeed" />
+                        </li> 
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="country">armor:</label>
+                            <input type="optgroup" placeholder="29" id="spellblock" />
+                        </li> 
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="country">spellblock:</label>
+                            <input type="optgroup" placeholder="30" id="spellblock" />
+                        </li> 
+                    </ul>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form class="bg-light">
+                    <ul class="list-group bg-dark" >
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="date">attackrange:</label>
+                            <input type="optgroup" placeholder="575" id="attackrange" />
+                        </li>
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="city">attackdamage:</label>
+                            <input type="text" placeholder="53" id="attackdamage" />
+                        </li>
+                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                            <label for="country">attackspeed:</label>
+                            <input type="optgroup" placeholder="0.625" id="attackspeed" />
+                        </li>
+                        <li class="list-group-item bg-none">                   
+                            <button id="filter-btn" type="button" class="btn btn-dark">Click to Filter</button>
+                        </li>                   
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <table class="table table-hover table-dark text-white">
+            <thead class="sortable">
+                <tr>
+                    <th>Name</th>
+                    <th>Key</th>
+                    <th>Title</th>
+                    <th>Tags</th>
+                    <th>partype</th>
+                    <th>hp</th>
+                    <th>hpperlevel</th>
+                    <th>mp</th>
+                    <th>mpperlevel</th>
+                    <th>movespeed</th>
+                    <th>armor</th>
+                    <th>armorperlevel</th>
+                    <th>spellblock</th>
+                    <th>spellblockperlevel</th>
+                    <th>attackrange</th>
+                    <th>hpregen</th>
+                    <th>hpregenperlevel</th>
+                    <th>mpregen</th>
+                    <th>mpregenperlevel</th>
+                    <th>crit</th>
+                    <th>critperlevel</th>
+                    <th>attackdamage</th>
+                    <th>attackdamageperlevel</th>
+                    <th>attackspeedperlevel</th>
+                    <th>attackspeed</th>
+                    <th>avgscore</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>  
+    
+    <div class="col-md-12 text-center">
+        <div id="footer" style="color: #f9fdff">Resources
+            <ul>
+                <a href="http://ddragon.leagueoflegends.com/cdn/12.15.1/data/en_US/champion.json">http://ddragon.leagueoflegends.com/cdn/12.15.1/data/en_US/champion.json</a>  
+            </ul> 
+        </div>
+    </div>
+
+</body>
+</html>
