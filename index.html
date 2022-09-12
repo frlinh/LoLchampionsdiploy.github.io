@@ -13,162 +13,206 @@
             crossorigin="anonymous"
         />
 
-        <link rel="stylesheet" href="../game-analysis/static/css/syle.css">
+        <link rel="stylesheet" href="/static/css/syle.css">
+        
 
     </head>
 
-<body style = "background-color: #0a0a0a">
-    <div class="container-fluid">
-        <div class="wrapper">   
-            <div class="text-center text-white">
-                <br>
-                <br>
-                <h1 class="display-3" style="font-family: fantasy; color: #602c85"><b>League of Legends <br> Champions Mastery<br> </h1>
-                <p style = "color: #602c85; font-size: 1.5rem">Use the dynamic table below to explore your Champion</p>
-                <img src="https://raw.githubusercontent.com/frlinh/game-analysis/main/static/images/Emblem_Diamond.png" style="width:300px;height:400px"></a>    
-                <br>
-                <br>
-            </div>
-        </div>   
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="container-fluid">
+            <div class="wrapper">   
+                <div class="text-center text-white">
+                    <div class="center"><button class="btn"><a href="#FILTERS">Browse Champions</a></button></div>
+                    <img src="/Resources/images/dashboard-banner.png";><br><br>
+                    <div class="badges">
+                    <p style="font-family: Arial; color: #996600">
+                    <br>
+                    This dashboard calculates champion mastery difficulty using game data from the top 12% of current League of Legends Summoners.
+                    <br>
+                    Click <a href="#TABLEAU">here</a> to see detailed analytics in Tableau.
+                    </p>
+                    <img src="https://raw.githubusercontent.com/frlinh/game-analysis/main/static/images/Emblem_Master.png" style="width:100px";>
+                    <img src="https://raw.githubusercontent.com/frlinh/game-analysis/main/static/images/Emblem_Grandmaster.png" style="width:100px";>
+                    <img src="https://raw.githubusercontent.com/frlinh/game-analysis/main/static/images/Emblem_Challenger.png" style="width:100px";>    
+                    </div>
+                </div>
+            </div>   
+        </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">    
-            <div class="col-md-4">
-                <h3 style="font-family: fantasy; color: #f9f6fc"><small>Who will you choose?</small></h3>
-                <div class="container-fluid">
-                    <button type="button" class="btn btn-lg btn-dark" onclick="location.href='http://ddragon.leagueoflegends.com/cdn/12.15.1/data/en_US/champion.json';">Go to Tableau</button>
+
+
+    <body>
+    
+    <!-- <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">    
+                <div class="col-md-4">
+                    <h3 style="font-family: Arial; color: #f9f6fc"><small>Who will you choose?</small></h3>
+                    <div class="container-fluid">
+                        <button type="button" class="btn btn-lg btn-dark" onclick="location.href='https://public.tableau.com/views/League-of-Legends-Mastery-Story/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link';">Go to Tableau</button>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-8">
-                <p style="font-family: Arial; color: #f9f6fc">
-                    LoL is one of the most popular multi-player games but is still widely notorious for not being noob-friendly, in part due to its many game mechanics and its ever-expanding roster of over 150 playable Champions.
-                    The purpose of this project is to create an easy-to-read and informative dashboard that allows a player to select any champion and see advanced stats for that champion, including learning curve and predicted mastery time.
-                    <br>
-                    <br>
-                </p>
-            </div>
         </div>
-    </div>
+    </div> -->
+        <a id="FILTERS">
+            <!-- Filters -->
+            <div class="container-fluid">
+                <div class="row d-flex justify-content-center" style="padding-top: 20px;">
+                    <br>
+                    <h2>Search the Champion database by Name, Role, or Mastery Difficulty</h2>
+                    <br>
+                </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-                <form class="bg-light">
-                    <ul class="list-group bg-dark" >
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="date">Champion Name:</label>
-                            <input type="optgroup" placeholder="Zyra" id="name" />
-                        </li> 
+                <div class="row d-flex justify-content-center">
 
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="city">Champion Key:</label>
-                            <input type="text" placeholder="143" id="key" />
-                        </li> 
+                    <!-- Filter:Champion Name -->
+                    <div class="col">
+                        <form>
+                            <ul>
+                                <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                                    <label for="date">Champion Name:  </label>
+                                    <input type="optgroup" placeholder="Zyra" id="name" />
+                                </li>
+                                </ul>
+                            </form>
+                        </div>
 
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="country">Tags:</label>
-                            <input type="optgroup" placeholder="['Mage', 'Support']" id="tags" />
-                        </li>  
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="country">Partype:</label>
-                            <input type="optgroup" placeholder="Mana" id="partype" />
-                        </li>                 
-                    </ul>
-                </form>
-            </div>
-            <div class="col-md-4">
-                <form class="bg-light">
-                    <ul class="list-group bg-dark" >
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="date">hp:</label>
-                            <input type="optgroup" placeholder="574" id="hp" />
-                        </li>
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="city">movespeed:</label>
-                            <input type="text" placeholder="340" id="movespeed" />
-                        </li> 
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="country">armor:</label>
-                            <input type="optgroup" placeholder="29" id="spellblock" />
-                        </li> 
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="country">spellblock:</label>
-                            <input type="optgroup" placeholder="30" id="spellblock" />
-                        </li> 
-                    </ul>
-                </form>
-            </div>
-            <div class="col-md-4">
-                <form class="bg-light">
-                    <ul class="list-group bg-dark" >
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="date">attackrange:</label>
-                            <input type="optgroup" placeholder="575" id="attackrange" />
-                        </li>
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="city">attackdamage:</label>
-                            <input type="text" placeholder="53" id="attackdamage" />
-                        </li>
-                        <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                            <label for="country">attackspeed:</label>
-                            <input type="optgroup" placeholder="0.625" id="attackspeed" />
-                        </li>
+                    <!-- Filter:Class-->
+                    <div class="col">
+                        <form>
+                            <ul>
+                                <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                                    <label for="tags">Champion Class:  </label>
+                                    <input type="optgroup" placeholder="Mage" id="tags" />
+                                </li>  
+                                </ul>
+                            </form>
+                        </div>
+
+                    <!-- Filter:Difficulty-->
+                    <div class="col">
+                        <form>
+                            <ul>
+                                <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                                    <label for="difficulty">Mastery Difficulty:  </label>
+                                    <input type="optgroup" placeholder="Medium" id="tags" />
+                                </li>  
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <ul>
                         <li class="list-group-item bg-none">                   
                             <button id="filter-btn" type="button" class="btn btn-dark">Click to Filter</button>
-                        </li>                   
+                        </li>        
                     </ul>
-                </form>
+                </div> 
+
+            </div>
+        </a>
+
+
+    
+        <!-- Table -->
+        <br><br>
+        <center>
+            <div class="col-md-9">
+                <table class="table table-hover table-dark text-white">
+                    <thead class="sortable">
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Key</th>
+                            <th>Title</th>
+                            <th>Role(s)</th>
+                            <th>partype</th>
+                            <th>HP</th>
+                            <th>HP Per Level</th>
+                            <th>MP</th>
+                            <th>MP Per Level</th>
+                            <th>Movespeed</th>
+                            <th>Armor</th>
+                            <th>Armor Per Level</th>
+                            <th>Spellblock</th>
+                            <th>Spellblock Per Level</th>
+                            <th>Attack Range</th>
+                            <th>HP Regen</th>
+                            <th>HP Regen Per Level</th>
+                            <th>MP Regen</th>
+                            <th>MP Regen Per Level</th>
+                            <th>Crit</th>
+                            <th>Crit Per Level</th>
+                            <th>Attack Damage</th>
+                            <th>Attack Damage Per Level</th>
+                            <th>Attack Speed Per Level</th>
+                            <th>Attack Speed</th>
+                            <th>Average Score</th>
+                            <th>Mastery Difficulty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </center>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+        <script src="static/js/data.js"></script>
+        <script src="static/js/app.js"></script>  
+        
+        <a id="TABLEAU">
+            <!-- Tableau Dashboard-->
+            <center>
+                <row class='tableau'>
+                    <div class='tableauPlaceholder' id='viz1662937913641' style='position: relative'>
+                        
+                        <noscript>
+                            <a href='#'><img alt='Mastery Models ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;2C&#47;2CCKXWHXX&#47;1_rss.png' style='border: none' /></a>
+                        </noscript>
+                        
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                            <param name='embed_code_version' value='3' /> 
+                            <param name='path' value='shared&#47;2CCKXWHXX' /> 
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;2C&#47;2CCKXWHXX&#47;1.png' /> 
+                            <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' />
+                        </object>
+                    </div>                
+                    
+                    <script type='text/javascript'>                    
+                    var divElement = document.getElementById('viz1662937913641');                    
+                    var vizElement = divElement.getElementsByTagName('object')[0];                    
+                    vizElement.style.width='1016px';vizElement.style.height='991px';                    
+                    var scriptElement = document.createElement('script');                    
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                    </script>
+
+                    <br><br>
+                </row>
+            </center>
+        </a>
+        
+    </body>
+
+    <footer>
+        <div class="col-md-12 text-center">
+            <div id="footer" style="color: #f9fdff">
+                <ul>
+                    <a>Resources:</a>
+                    <br>
+                    <a href="http://ddragon.leagueoflegends.com/cdn/12.15.1/data/en_US/champion.json">Data Dragon Data Source</a>
+                    <br>
+                    <a href="https://public.tableau.com/views/League-of-Legends-Mastery-Story/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link">Tableau</a>  
+                </ul> 
             </div>
         </div>
-    </div>
-
-    <div class="col-md-12">
-        <table class="table table-hover table-dark text-white">
-            <thead class="sortable">
-                <tr>
-                    <th>Name</th>
-                    <th>Key</th>
-                    <th>Title</th>
-                    <th>Tags</th>
-                    <th>partype</th>
-                    <th>hp</th>
-                    <th>hpperlevel</th>
-                    <th>mp</th>
-                    <th>mpperlevel</th>
-                    <th>movespeed</th>
-                    <th>armor</th>
-                    <th>armorperlevel</th>
-                    <th>spellblock</th>
-                    <th>spellblockperlevel</th>
-                    <th>attackrange</th>
-                    <th>hpregen</th>
-                    <th>hpregenperlevel</th>
-                    <th>mpregen</th>
-                    <th>mpregenperlevel</th>
-                    <th>crit</th>
-                    <th>critperlevel</th>
-                    <th>attackdamage</th>
-                    <th>attackdamageperlevel</th>
-                    <th>attackspeedperlevel</th>
-                    <th>attackspeed</th>
-                    <th>avgscore</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-    <script src="data.js"></script>
-    <script src="app.js"></script>  
+    </footer>
     
-    <div class="col-md-12 text-center">
-        <div id="footer" style="color: #f9fdff">Resources
-            <ul>
-                <a href="http://ddragon.leagueoflegends.com/cdn/12.15.1/data/en_US/champion.json">http://ddragon.leagueoflegends.com/cdn/12.15.1/data/en_US/champion.json</a>  
-            </ul> 
-        </div>
-    </div>
-
-</body>
 </html>
