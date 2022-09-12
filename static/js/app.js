@@ -134,3 +134,5 @@ document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() =
     .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
     .forEach(tr => tbody.appendChild(tr) );
 })))
+
+
