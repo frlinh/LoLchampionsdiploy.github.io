@@ -8,68 +8,61 @@ let tableBody= document.querySelector("tbody");
 // BUILD TABLE
 function buildTable(data) {
   // First, clear out any existing data
-   tbody.html("");
+  tbody.html("");
   
-
   // Next, loop through each object in the data
   // and append a row and cells for each value in the row
   data.forEach((dataRow) => {
     // Append a row to the table body
-let dataTr= `
-   <tr>
-    <td><img src="./Resources/images/champion_images/${dataRow.name}.jpg"/></td>
-    <td>${dataRow.name}</td>
-    <td>${dataRow.key}</td>
-    <td>${dataRow.title}</td>
-    <td>${dataRow.tags}</td>
-    <td>${dataRow.partype}</td>
-    <td>${dataRow.hp}</td>
-    <td>${dataRow.hpperlevel}</td>
-    <td>${dataRow.mp}</td>
-    <td>${dataRow.mpperlevel}</td>
-    <td>${dataRow.movespeed}</td>
-    <td>${dataRow.armor}</td>
-    <td>${dataRow.armorperlevel}</td>
-    <td>${dataRow.spellblock}</td>
-    <td>${dataRow.spellblockperlevel}</td>
-    <td>${dataRow.attackrange}</td>
-    <td>${dataRow.hpregen}</td>
-    <td>${dataRow.hpregenperlevel}</td>
-    <td>${dataRow.mpregen}</td>
-    <td>${dataRow.mpregenperlevel}</td>
-    <td>${dataRow.crit}</td>
-    <td>${dataRow.critperlevel}</td>
-    <td>${dataRow.attackdamage}</td>
-    <td>${dataRow.attackdamageperlevel}</td>
-    <td>${dataRow.attackspeedperlevel}</td>
-    <td>${dataRow.attackspeed}</td>
-    <td>${dataRow.avgscore}</td>
- </tr>
- `
+    let dataTr= `
+      <tr>
+        <td><img src="./Resources/images/champion_images/${dataRow.name}.jpg"/></td>
+        <td>${dataRow.name}</td>
+        <td>${dataRow.key}</td>
+        <td>${dataRow.title}</td>
+        <td>${dataRow.tags}</td>
+        <td>${dataRow.partype}</td>
+        <td>${dataRow.hp}</td>
+        <td>${dataRow.hpperlevel}</td>
+        <td>${dataRow.mp}</td>
+        <td>${dataRow.mpperlevel}</td>
+        <td>${dataRow.movespeed}</td>
+        <td>${dataRow.armor}</td>
+        <td>${dataRow.armorperlevel}</td>
+        <td>${dataRow.spellblock}</td>
+        <td>${dataRow.spellblockperlevel}</td>
+        <td>${dataRow.attackrange}</td>
+        <td>${dataRow.hpregen}</td>
+        <td>${dataRow.hpregenperlevel}</td>
+        <td>${dataRow.mpregen}</td>
+        <td>${dataRow.mpregenperlevel}</td>
+        <td>${dataRow.crit}</td>
+        <td>${dataRow.critperlevel}</td>
+        <td>${dataRow.attackdamage}</td>
+        <td>${dataRow.attackdamageperlevel}</td>
+        <td>${dataRow.attackspeedperlevel}</td>
+        <td>${dataRow.attackspeed}</td>
+        <td>${dataRow.avgscore}</td>
+      </tr>
+    `
+      //   let row = tbody.append("tr");
+      //   // Loop through each field in the dataRow and add
+      //   // each value as a table cell (td)
+      //   Object.values(dataRow).forEach((val) => {
+      //     let cell = row.append("td");
+      //     cell.text(val);
+      //   });
+      // });
 
-  //   let row = tbody.append("tr");
-
-  //   // Loop through each field in the dataRow and add
-  //   // each value as a table cell (td)
-  //   Object.values(dataRow).forEach((val) => {
-  //     let cell = row.append("td");
-  //     cell.text(val);
-  //   });
-  // });
-
- tableBody.insertAdjacentHTML("beforeend", dataTr);
-  
+      tableBody.insertAdjacentHTML("beforeend", dataTr);  
   });
 }
 
 // let tableRows= document.querySelector("tr");
-
 // tr.forEach(rowCell=> {
 //   let rc= `<td>Image</td>`
-
 //   rowCell.insertAdjacentHTML("afterbegin", rc);
 // });
-
 
 // 1. Create a variable to keep track of all the filters as an object.
 var filters = {};

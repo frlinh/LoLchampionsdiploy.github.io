@@ -1,3 +1,16 @@
+CREATE TABLE championPoints (
+	championId VARCHAR(40) NOT NULL
+	, championName VARCHAR(100) NOT NULL
+	, role1 INT
+	, role2 INT
+	, difficulty INT
+	, summonersPlaying INT
+	, total_championPoints NUMERIC(5,2)
+	, PRIMARY KEY (championId)
+	, UNIQUE (championName)
+);
+
+
 -- Create table with Champions, champion points, and difficulty
 SELECT m."championId"
 	, c."id" AS championName

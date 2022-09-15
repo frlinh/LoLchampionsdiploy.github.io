@@ -12,25 +12,22 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous"
         />
-
         <link rel="stylesheet" href="/static/css/syle.css">
-        
-
-    </head>
+   </head>
 
     <!-- Jumbotron -->
     <div class="jumbotron">
         <div class="container-fluid">
             <div class="wrapper">   
                 <div class="text-center text-white">
-                    <div class="center"><button class="btn"><a href="#FILTERS">Browse Champions</a></button></div>
-                    <img src="/Resources/images/dashboard-banner.png";><br><br>
+                    <div class="center"><button class="btn btn-lg btn-dark"><a href="#FILTERS">Browse Champions</a></button></div>
+                    <br><br><br><img src="/Resources/images/dashboard-banner.png";><br><br><br>
                     <div class="badges">
-                    <p style="font-family: Arial; color: #996600">
-                    <br>
-                    This dashboard calculates champion mastery difficulty using game data from the top 12% of current League of Legends Summoners.
-                    <br>
-                    Click <a href="#TABLEAU">here</a> to see detailed analytics in Tableau.
+                    <p style="font-family: Helvetica; font-size: 1.5rem; color: #996600">
+                        This dashboard calculates champion mastery rank using game data <br> from the top 12% of current League of Legends Summoners.<br>
+                        Click <a href="#TABLEAU">here</a> to see detailed analytics in Tableau.
+                        <br>
+                        <br>
                     </p>
                     <img src="https://raw.githubusercontent.com/frlinh/game-analysis/main/static/images/Emblem_Master.png" style="width:100px";>
                     <img src="https://raw.githubusercontent.com/frlinh/game-analysis/main/static/images/Emblem_Grandmaster.png" style="width:100px";>
@@ -44,19 +41,19 @@
 
     <body>
     
-    <!-- <div class="container-fluid">
-        <div class="container-fluid">
-            <div class="row">    
-                <div class="col-md-4">
-                    <h3 style="font-family: Arial; color: #f9f6fc"><small>Who will you choose?</small></h3>
-                    <div class="container-fluid">
-                        <button type="button" class="btn btn-lg btn-dark" onclick="location.href='https://public.tableau.com/views/League-of-Legends-Mastery-Story/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link';">Go to Tableau</button>
+        <!-- <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="row">    
+                    <div class="col-md-4">
+                        <h3 style="font-family: Arial; color: #f9f6fc"><small>Who will you choose?</small></h3>
+                        <div class="container-fluid">
+                            <button type="button" class="btn btn-lg btn-dark" onclick="location.href='https://public.tableau.com/views/League-of-Legends-Mastery-Story/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link';">Go to Tableau</button>
+                        </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </div> -->
+        </div> -->
+
         <a id="FILTERS">
             <!-- Filters -->
             <div class="container-fluid">
@@ -69,36 +66,36 @@
                 <div class="row d-flex justify-content-center">
 
                     <!-- Filter:Champion Name -->
-                    <div class="col">
+                    <div class="col-md-3">
                         <form>
                             <ul>
-                                <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                                <li class="list-group-item bg-dark" style="font-family: fantasy; font-size: 2rem;">
                                     <label for="date">Champion Name:  </label>
                                     <input type="optgroup" placeholder="Zyra" id="name" />
                                 </li>
-                                </ul>
-                            </form>
-                        </div>
+                            </ul>
+                        </form>
+                    </div>
 
                     <!-- Filter:Class-->
-                    <div class="col">
+                    <div class="col-md-3">
                         <form>
                             <ul>
-                                <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
+                                <li class="list-group-item bg-dark" style="font-family: fantasy; font-size: 2rem;">
                                     <label for="tags">Champion Class:  </label>
                                     <input type="optgroup" placeholder="Mage" id="tags" />
                                 </li>  
-                                </ul>
-                            </form>
-                        </div>
+                            </ul>
+                        </form>
+                    </div>
 
                     <!-- Filter:Difficulty-->
-                    <div class="col">
+                    <div class="col-md-3">
                         <form>
                             <ul>
-                                <li class="list-group-item bg-none" style="font-family: fantasy; font-size: 2rem;">
-                                    <label for="difficulty">Mastery Difficulty:  </label>
-                                    <input type="optgroup" placeholder="Medium" id="tags" />
+                                <li class="list-group-item bg-dark" style="font-family: fantasy; font-size: 2rem;">
+                                    <label for="difficulty">Mastery Rank:  </label>
+                                    <input type="optgroup" placeholder="Intermediate" id="tags" />
                                 </li>  
                             </ul>
                         </form>
@@ -107,66 +104,62 @@
 
                 <div class="row d-flex justify-content-center">
                     <ul>
-                        <li class="list-group-item bg-none">                   
+                        <li class="list-group-item bg-dark">                   
                             <button id="filter-btn" type="button" class="btn btn-dark">Click to Filter</button>
                         </li>        
                     </ul>
                 </div> 
-
             </div>
         </a>
-
 
     
         <!-- Table -->
         <br><br>
-        <center>
-            <div class="col-md-9">
-                <table class="table table-hover table-dark text-white">
-                    <thead class="sortable">
-                        <tr>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Key</th>
-                            <th>Title</th>
-                            <th>Role(s)</th>
-                            <th>partype</th>
-                            <th>HP</th>
-                            <th>HP Per Level</th>
-                            <th>MP</th>
-                            <th>MP Per Level</th>
-                            <th>Movespeed</th>
-                            <th>Armor</th>
-                            <th>Armor Per Level</th>
-                            <th>Spellblock</th>
-                            <th>Spellblock Per Level</th>
-                            <th>Attack Range</th>
-                            <th>HP Regen</th>
-                            <th>HP Regen Per Level</th>
-                            <th>MP Regen</th>
-                            <th>MP Regen Per Level</th>
-                            <th>Crit</th>
-                            <th>Crit Per Level</th>
-                            <th>Attack Damage</th>
-                            <th>Attack Damage Per Level</th>
-                            <th>Attack Speed Per Level</th>
-                            <th>Attack Speed</th>
-                            <th>Average Score</th>
-                            <th>Mastery Difficulty</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </center>
+        <div class="col-md-12">
+            <table class="table table-hover table-dark text-white">
+                <thead class="sortable">
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Key</th>
+                        <th>Title</th>
+                        <th>Role(s)</th>
+                        <th>partype</th>
+                        <th>HP</th>
+                        <th>HP Per Level</th>
+                        <th>MP</th>
+                        <th>MP Per Level</th>
+                        <th>Movespeed</th>
+                        <th>Armor</th>
+                        <th>Armor Per Level</th>
+                        <th>Spellblock</th>
+                        <th>Spellblock Per Level</th>
+                        <th>Attack Range</th>
+                        <th>HP Regen</th>
+                        <th>HP Regen Per Level</th>
+                        <th>MP Regen</th>
+                        <th>MP Regen Per Level</th>
+                        <th>Crit</th>
+                        <th>Crit Per Level</th>
+                        <th>Attack Damage</th>
+                        <th>Attack Damage Per Level</th>
+                        <th>Attack Speed Per Level</th>
+                        <th>Attack Speed</th>
+                        <th>Average Score</th>
+                        <th>Mastery Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
         <script src="static/js/data.js"></script>
         <script src="static/js/app.js"></script>  
         
-        <a id="TABLEAU">
-            <!-- Tableau Dashboard-->
+        <!-- <a id="TABLEAU">
+            Tableau Dashboard
             <center>
                 <row class='tableau'>
                     <div class='tableauPlaceholder' id='viz1662937913641' style='position: relative'>
@@ -184,21 +177,21 @@
                             <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' />
                             <param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' />
                         </object>
+
                     </div>                
                     
                     <script type='text/javascript'>                    
-                    var divElement = document.getElementById('viz1662937913641');                    
-                    var vizElement = divElement.getElementsByTagName('object')[0];                    
-                    vizElement.style.width='1016px';vizElement.style.height='991px';                    
-                    var scriptElement = document.createElement('script');                    
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                        var divElement = document.getElementById('viz1662937913641');                    
+                        var vizElement = divElement.getElementsByTagName('object')[0];                    
+                        vizElement.style.width='1016px';vizElement.style.height='991px';                    
+                        var scriptElement = document.createElement('script');                    
+                        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
                     </script>
-
                     <br><br>
                 </row>
             </center>
-        </a>
+        </a> -->
         
     </body>
 
