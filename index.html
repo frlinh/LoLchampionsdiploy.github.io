@@ -39,33 +39,21 @@
     </div>
 
     <body>
-    
-        <!-- <div class="container-fluid">
-            <div class="container-fluid">
-                <div class="row">    
-                    <div class="col-md-4">
-                        <h3 style="font-family: Arial; color: #f9f6fc"><small>Who will you choose?</small></h3>
-                        <div class="container-fluid">
-                            <button type="button" class="btn btn-lg btn-dark" onclick="location.href='https://public.tableau.com/views/League-of-Legends-Mastery-Story/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link';">Go to Tableau</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
         <a id="FILTERS">
             <!-- Filters -->
             <div class="container-fluid">
-                <div class="row d-flex justify-content-center" style="padding-top: 20px;">
+                <div class="row d-flex justify-content-center" style="padding-top: 10px;">
                     <br>
                     <h2>Search the Champion database by Name, Role, or Mastery Rank</h2>
+                    <br>
                     <br>
                 </div>
 
                 <div class="row d-flex justify-content-center">
 
                     <!-- Filter:Champion Name -->
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <form>
                             <ul>
                                 <li class="list-group-item bg-dark" style="font-family: fantasy; font-size: 2rem;">
@@ -77,19 +65,19 @@
                     </div>
 
                     <!-- Filter:Class-->
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <form>
                             <ul>
                                 <li class="list-group-item bg-dark" style="font-family: fantasy; font-size: 2rem;">
                                     <label for="tags">Champion Class:  </label>
-                                    <input type="optgroup" placeholder="Mage" id="tags" />
+                                    <input type="optgroup" placeholder="['Mage', 'Support']" id="tags" />
                                 </li>  
                             </ul>
                         </form>
                     </div>
 
                     <!-- Filter:Difficulty-->
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <form>
                             <ul>
                                 <li class="list-group-item bg-dark" style="font-family: fantasy; font-size: 2rem;">
@@ -114,7 +102,7 @@
     
         <!-- Table -->
         <br><br>
-        <div class="col-md-9">
+        <div class="col-md-12">
             <table class="table table-hover table-dark text-white">
                 <thead class="sortable">
                     <tr>
@@ -195,7 +183,7 @@
     </body>
 
     <footer>
-        <div class="col-md-9 text-center">
+        <div class="col-md-12 text-center">
             <div id="footer" style="color: #f9fdff">
                 <ul>
                     <a>Resources:</a>
